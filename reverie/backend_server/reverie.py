@@ -53,11 +53,10 @@ class ReverieServer:
         # copy everything that's in <fork_sim_code>, but edit its
         # reverie/meta/json's fork variable.
         self.sim_code = sim_code
+        sim_folder = f"{fs_storage}/{self.sim_code}"
 
         if os.path.exists(f"{fs_storage}/{self.sim_code}"):
             shutil.rmtree(f"{fs_storage}/{self.sim_code}")
-
-        sim_folder = f"{fs_storage}/{self.sim_code}"
         copyanything(fork_folder, sim_folder)
 
         with open(f"{sim_folder}/reverie/meta.json") as json_file:
@@ -314,6 +313,11 @@ class ReverieServer:
         # <game_obj_cleanup> is used for that.
         game_obj_cleanup = dict()
 
+        # create movement directory if it doesn't exist
+        movement_dir = os.path.join(sim_folder, "movement")
+        if not os.path.exists(movement_dir):
+            os.makedirs(movement_dir)
+
         # The main while loop of Reverie.
         while True:
             # Done with this iteration if <int_counter> reaches 0.
@@ -436,7 +440,8 @@ class ReverieServer:
                     self.curr_time += datetime.timedelta(seconds=self.sec_per_step)
 
                     int_counter -= 1
-
+                    print("STEP: ", self.step)
+            print("END OF WHILE LOOP")
             # Sleep so we don't burn our machines.
             time.sleep(self.server_sleep)
 
