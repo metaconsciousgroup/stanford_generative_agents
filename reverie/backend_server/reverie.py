@@ -53,6 +53,11 @@ class ReverieServer:
         # copy everything that's in <fork_sim_code>, but edit its
         # reverie/meta/json's fork variable.
         self.sim_code = sim_code
+
+        # TODO: temp, remove the previous test to keep the test file clean
+        if os.path.exists(f"{fs_storage}/{self.sim_code}"):
+            shutil.rmtree(f"{fs_storage}/{self.sim_code}")
+
         sim_folder = f"{fs_storage}/{self.sim_code}"
         copyanything(fork_folder, sim_folder)
 
@@ -420,7 +425,7 @@ class ReverieServer:
                                         "%B %d, %Y, %H:%M:%S"
                                     ),
                                     # "personas_info": self.personas,
-                                    "maze": self.maze,
+                                    # "maze": self.maze,
                                 },
                                 "output": {
                                     "movement": next_tile,
@@ -658,11 +663,9 @@ if __name__ == "__main__":
     #                    "July1_the_ville_isabella_maria_klaus-step-3-21")
     # rs.open_server()
 
-    origin = "base_the_ville_n25"
-
-    import random
-
-    target = "test_" + str(random.randint(0, 10000))
+    origin = "lyfe"
+    # origin = "base_the_ville_isabella_maria_klaus"
+    target = "test_lyfe"
     # origin = input("Enter the name of the forked simulation: ").strip()
     # target = input("Enter the name of the new simulation: ").strip()
 
