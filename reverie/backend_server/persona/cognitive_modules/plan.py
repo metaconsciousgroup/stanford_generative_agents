@@ -469,7 +469,8 @@ def _long_term_planning(persona, new_day):
              create the personas' long term planning on the new day. 
   """
   # We start by creating the wake up hour for the persona. 
-  wake_up_hour = generate_wake_up_hour(persona)
+  # wake_up_hour = generate_wake_up_hour(persona)
+  wake_up_hour = 6 # LYFE AGENT: 6am wake up, note that meta.json must match
 
   # When it is a new day, we start by creating the daily_req of the persona.
   # Note that the daily_req is a list of strings that describe the persona's
