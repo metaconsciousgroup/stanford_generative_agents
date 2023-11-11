@@ -419,7 +419,7 @@ class ReverieServer:
                                     "curr_time": self.curr_time.strftime(
                                         "%B %d, %Y, %H:%M:%S"
                                     ),
-                                    "personas_info": self.personas,
+                                    # "personas_info": self.personas,
                                     "maze": self.maze,
                                 },
                                 "output": {
