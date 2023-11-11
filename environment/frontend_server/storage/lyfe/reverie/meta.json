@@ -1,0 +1,13 @@
+{
+  "fork_sim_code": "lyfe",
+  "start_date": "February 13, 2023",
+  "curr_time": "February 13, 2023, 00:00:00",
+  "sec_per_step": 10,
+  "maze_name": "the_ville",
+  "persona_names": [
+    "Dmitri Ivanov", 
+    "Lizhi Chen",
+    "Richard Smith"    
+  ],
+  "step": 0
+}
