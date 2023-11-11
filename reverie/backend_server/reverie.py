@@ -302,10 +302,15 @@ class ReverieServer:
     # <game_obj_cleanup> is used for that. 
     game_obj_cleanup = dict()
 
+    # create movement directory if it doesn't exist
+    movement_dir = os.path.join(sim_folder, "movement")
+    if not os.path.exists(movement_dir):
+        os.makedirs(movement_dir)
+
     # The main while loop of Reverie. 
     while (True): 
       # Done with this iteration if <int_counter> reaches 0. 
-      if int_counter == 0: 
+      if int_counter == 0:
         break
 
       # <curr_env_file> file is the file that our frontend outputs. When the
@@ -407,7 +412,8 @@ class ReverieServer:
           self.curr_time += datetime.timedelta(seconds=self.sec_per_step)
 
           int_counter -= 1
-          
+          print("STEP: ", self.step)
+      print("END OF WHILE LOOP")
       # Sleep so we don't burn our machines. 
       time.sleep(self.server_sleep)
 
