@@ -2,9 +2,13 @@ reverie/backend_server/utils.py
 frontend_server/settings/local.py
 storage/*
 static_dirs/*
+environment/frontend_server/storage/
+environment/frontend_server/temp_storage/
+
 
 !storage/base_the_ville_isabella_maria_klaus/*
 !storage/base_the_ville_n25/*
+!environment/frontend_server/storage/lyfe
 
 bin/
 include/
